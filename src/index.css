@@ -1,30 +1,54 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-light: 221.2 83.2% 65%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     --border: 214.3 31.8% 91.4%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Premium Dark Navy/Black */
+    --background: 224 71% 4%;
     --foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --card: 222.2 84% 4.9%;
+
+    /* Subtle glass card backgrounds */
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
+
+    /* Vibrant Blue Accent */
+    --primary: 217.2 91.2% 59.8%;
+    --primary-light: 217.2 91.2% 70%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    /* Purple Accent */
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --border: 216 34% 17%;
   }
 }
 
@@ -33,6 +57,22 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/40 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-lg border border-white/5 hover:border-white/10 transition-all duration-300;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-secondary;
   }
 }
