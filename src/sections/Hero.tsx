@@ -88,13 +88,14 @@ export const Hero = () => {
             {/* Core glowing circle */}
             <div className="absolute w-[400px] h-[400px] bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-2xl animate-pulse"></div>
 
-            {/* Center abstract element */}
-            <div className="relative w-72 h-72 rounded-full glass-card border border-white/20 flex items-center justify-center overflow-hidden z-10 shadow-2xl">
-               <div className="absolute inset-0 bg-hero-gradient mix-blend-overlay"></div>
-               <div className="relative text-center">
-                 <Terminal size={64} className="text-primary mx-auto mb-4 opacity-80" />
-                 <div className="text-2xl font-bold tracking-widest text-white/90">&lt; / &gt;</div>
-               </div>
+            {/* Center portrait */}
+            <div className="relative w-72 h-72 rounded-full glass-card border border-white/20 overflow-hidden z-10 shadow-2xl">
+               <img
+                 src="/profile.jpg"
+                 alt="Gayatri Chavan"
+                 className="w-full h-full object-cover"
+               />
+               <div className="absolute inset-0 bg-hero-gradient mix-blend-overlay pointer-events-none"></div>
             </div>
 
             {/* Orbiting Tech Elements */}
